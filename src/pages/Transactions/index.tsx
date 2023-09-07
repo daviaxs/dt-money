@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { Header } from '../../shared/components/Header'
 import { Summary } from '../../shared/components/Summary'
+import { TransactionsContext } from '../../shared/contexts/TransactionsContext'
 import {
   PriceHighLight,
   TransactionsContainer,
@@ -8,28 +9,8 @@ import {
 } from './styles'
 import { SearchForm } from './utils/SearchForm'
 
-interface TransactionType {
-  id: number
-  description: string
-  type: 'income' | 'outcome'
-  price: number
-  category: string
-  createdAt: string
-}
-
 export function Transactions() {
-  const [transactions, setTransactions] = useState<TransactionType[]>([])
-
-  async function loadTransactions() {
-    const response = await fetch('http://localhost:3333/transactions')
-    const data = await response.json()
-
-    setTransactions(data)
-  }
-
-  useEffect(() => {
-    loadTransactions()
-  }, [])
+  const { transactions } = useContext(TransactionsContext)
 
   return (
     <div>
