@@ -1,5 +1,6 @@
 import { Header } from '../../shared/components/Header'
 import { Summary } from '../../shared/components/Summary'
+import { TransactionsContainer, TransactionsTable } from './styles'
 
 export function Transactions() {
   return (
@@ -8,7 +9,7 @@ export function Transactions() {
       <Summary />
 
       <TransactionsContainer>
-        <table>
+        <TransactionsTable>
           <tbody>
             <tr>
               <td width="50%">Desenvolvimento de site</td>
@@ -23,7 +24,7 @@ export function Transactions() {
               <td>10/04/2022</td>
             </tr>
           </tbody>
-        </table>
+        </TransactionsTable>
       </TransactionsContainer>
     </div>
   )
