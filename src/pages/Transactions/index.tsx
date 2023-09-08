@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { Header } from '../../shared/components/Header'
 import { Summary } from '../../shared/components/Summary'
 import { TransactionsContext } from '../../shared/contexts/TransactionsContext'
@@ -11,7 +11,9 @@ import {
 import { SearchForm } from './utils/SearchForm'
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  })
 
   return (
     <div>

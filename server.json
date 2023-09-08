@@ -47,6 +47,14 @@
       "type": "income",
       "createdAt": "2023-09-08T06:22:11.932Z",
       "id": 6
+    },
+    {
+      "category": "Compra",
+      "description": "Mercado",
+      "price": 125,
+      "type": "outcome",
+      "createdAt": "2023-09-08T07:09:54.385Z",
+      "id": 7
     }
   ]
 }
