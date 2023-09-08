@@ -15,6 +15,38 @@
       "category": "Alimentação",
       "price": 200,
       "createdAt": "2023-09-07T22:30:35.392Z"
+    },
+    {
+      "category": "Venda",
+      "description": "Venda de curso",
+      "price": 250,
+      "type": "income",
+      "createdAt": "2023-09-08T06:03:02.165Z",
+      "id": 3
+    },
+    {
+      "category": "Venda",
+      "description": "Venda de app",
+      "price": 5000,
+      "type": "income",
+      "createdAt": "2023-09-08T06:04:10.798Z",
+      "id": 4
+    },
+    {
+      "category": "Compra",
+      "description": "Iphone 14",
+      "price": 9000,
+      "type": "outcome",
+      "createdAt": "2023-09-08T06:04:49.928Z",
+      "id": 5
+    },
+    {
+      "category": "Venda",
+      "description": "Venda de curso",
+      "price": 400,
+      "type": "income",
+      "createdAt": "2023-09-08T06:22:11.932Z",
+      "id": 6
     }
   ]
 }
