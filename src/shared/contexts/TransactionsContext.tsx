@@ -1,6 +1,5 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { createContext } from 'use-context-selector'
-import { api } from '../lib/axios'
 
 interface TransactionProps {
   id: number
@@ -34,32 +33,42 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<TransactionProps[]>([])
 
   const fetchTransactions = useCallback(async (query?: string) => {
-    const response = await api.get('transactions', {
-      params: {
-        _sort: 'createdAt',
-        _order: 'desc',
-        q: query,
-      },
-    })
+    let transactions = localStorage.getItem('transactions')
 
-    setTransactions(response.data)
+    if (!transactions) {
+      transactions = '[]'
+    }
+
+    let parsedTransactions = JSON.parse(transactions)
+
+    if (query) {
+      parsedTransactions = parsedTransactions.filter(
+        (transaction: TransactionProps) =>
+          transaction.description.toLowerCase().includes(query.toLowerCase()),
+      )
+    }
+
+    setTransactions(parsedTransactions)
   }, [])
 
   const createTransaction = useCallback(
     async (data: CreateTransactionProps) => {
       const { category, description, price, type } = data
 
-      const response = await api.post('transactions', {
+      const newTransaction = {
+        id: Math.random(),
         category,
         description,
         price,
         type,
-        createdAt: new Date(),
-      })
+        createdAt: new Date().toISOString(),
+      }
 
-      setTransactions((state) => [response.data, ...state])
+      const newTransactions = [newTransaction, ...transactions]
+      localStorage.setItem('transactions', JSON.stringify(newTransactions))
+      setTransactions(newTransactions)
     },
-    [],
+    [transactions],
   )
 
   useEffect(() => {
