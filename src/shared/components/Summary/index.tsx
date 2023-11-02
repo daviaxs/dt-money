@@ -34,6 +34,7 @@ export function Summary() {
 
         <strong>{priceFormatter.format(summary.total)}</strong>
       </SummaryCard>
+      <div></div>
     </SummaryContainer>
   )
 }

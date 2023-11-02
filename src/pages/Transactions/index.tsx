@@ -7,6 +7,7 @@ import {
   PriceHighLight,
   TransactionsContainer,
   TransactionsTable,
+  TransactionsTableContainer,
 } from './styles'
 import { SearchForm } from './utils/SearchForm'
 
@@ -22,33 +23,41 @@ export function Transactions() {
 
       <TransactionsContainer>
         <SearchForm />
-        <TransactionsTable>
-          <tbody>
-            {transactions && transactions.length > 0 ? (
-              transactions.map((transaction) => {
-                return (
-                  <tr key={transaction.id}>
-                    <td width="50%">{transaction.description}</td>
-                    <td>
-                      <PriceHighLight $variant={transaction.type}>
-                        {transaction.type === 'outcome' && '- '}
-                        {priceFormatter.format(transaction.price)}
-                      </PriceHighLight>
-                    </td>
-                    <td>{transaction.category}</td>
-                    <td>
-                      {dateFormatter.format(new Date(transaction.createdAt))}
-                    </td>
-                  </tr>
-                )
-              })
-            ) : (
-              <tr>
-                <td colSpan={4}>Nenhuma transação encontrada</td>
-              </tr>
-            )}
-          </tbody>
-        </TransactionsTable>
+
+        <TransactionsTableContainer>
+          <div className="headerTitle">
+            <p>Transações</p>
+            <span>{transactions.length} items</span>
+          </div>
+
+          <TransactionsTable>
+            <tbody>
+              {transactions && transactions.length > 0 ? (
+                transactions.map((transaction) => {
+                  return (
+                    <tr key={transaction.id}>
+                      <td width="50%">{transaction.description}</td>
+                      <td>
+                        <PriceHighLight $variant={transaction.type}>
+                          {transaction.type === 'outcome' && '- '}
+                          {priceFormatter.format(transaction.price)}
+                        </PriceHighLight>
+                      </td>
+                      <td>{transaction.category}</td>
+                      <td>
+                        {dateFormatter.format(new Date(transaction.createdAt))}
+                      </td>
+                    </tr>
+                  )
+                })
+              ) : (
+                <tr className="notTransactionsFound">
+                  <td colSpan={4}>Nenhuma transação encontrada</td>
+                </tr>
+              )}
+            </tbody>
+          </TransactionsTable>
+        </TransactionsTableContainer>
       </TransactionsContainer>
     </div>
   )

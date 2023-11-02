@@ -8,9 +8,40 @@ export const SummaryContainer = styled.section`
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 
   margin-top: -5rem;
+
+  @media screen and (max-width: 900px) {
+    overflow-x: auto;
+
+    & {
+      scrollbar-width: thin;
+      scrollbar-color: #9b9bb0 #30303a;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 20px;
+      background-color: #30303a;
+      border: 10px solid #30303a;
+      margin-inline: 1rem;
+    }
+
+    &::-webkit-scrollbar {
+      height: 16px;
+      width: 16px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+      background-color: #87879a;
+      border: 5px solid #30303a;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #9b9bb0;
+    }
+  }
 `
 
 interface SummaryCardProps {
@@ -40,4 +71,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     css`
       background-color: ${props.theme['green-700']};
     `}
+
+  @media screen and (max-width: 900px) {
+    width: 17rem;
+  }
 `
