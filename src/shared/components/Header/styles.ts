@@ -35,4 +35,8 @@ export const NewTransactionButton = styled.button`
   &:hover {
     background-color: ${(props) => props.theme['green-700']};
   }
+
+  @media screen and (max-width: 600px) {
+    font-size: 20px;
+  }
 `
