@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const TransactionsContainer = styled.main`
   width: 100%;
   max-width: 1120px;
-  margin: 2rem auto 0;
+  margin: 2rem auto 1rem;
   padding: 0 1.25rem;
 `
 export const TransactionsTableContainer = styled.div`
@@ -39,6 +39,7 @@ export const TransactionsTable = styled.ul`
     white-space: nowrap;
     overflow: hidden;
     gap: 2rem;
+    border-radius: 0.25rem;
 
     .description {
       flex: 1;
