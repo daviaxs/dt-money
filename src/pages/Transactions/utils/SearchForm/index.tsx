@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import * as z from 'zod'
 import { TransactionsContext } from '../../../../shared/contexts/TransactionsContext'
+import { useWindowWidth } from '../../../../shared/hooks/useWindowWidth'
 import { SearchFormContainer } from './styles'
 
 const searchFormSchema = z.object({
@@ -13,6 +14,8 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function SearchForm() {
+  const { width } = useWindowWidth()
+
   const fetchTransactions = useContextSelector(
     TransactionsContext,
     (context) => {
@@ -36,12 +39,12 @@ export function SearchForm() {
     <SearchFormContainer onSubmit={handleSubmit(handleSearchTransaction)}>
       <input
         type="text"
-        placeholder="Busque por transações"
+        placeholder={width <= 600 ? 'Pesquisar' : 'Busque por transações'}
         {...register('query')}
       />
       <button type="submit" disabled={isSubmitting}>
         <MagnifyingGlass size={20} />
-        Buscar
+        {width > 600 && <span>Buscar</span>}
       </button>
     </SearchFormContainer>
   )
