@@ -63,6 +63,11 @@ export const Content = styled(Dialog.Content)`
       }
     }
   }
+
+  @media screen and (max-width: 600px) {
+    min-width: 101%;
+    min-height: 101%;
+  }
 `
 
 export const CloseButton = styled(Dialog.Close)`
@@ -70,7 +75,7 @@ export const CloseButton = styled(Dialog.Close)`
   background-color: transparent;
   border: 0;
   top: 1.5rem;
-  right: 1.5rem;
+  right: 2rem;
   cursor: pointer;
   line-height: 0;
   color: ${(props) => props.theme['gray-500']};
