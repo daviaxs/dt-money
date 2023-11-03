@@ -9,7 +9,7 @@ export const TransactionsContainer = styled.main`
 export const TransactionsTableContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1.75rem;
+  margin-top: 1rem;
 
   .headerTitle {
     display: flex;
@@ -26,36 +26,77 @@ export const TransactionsTableContainer = styled.div`
   }
 `
 
-export const TransactionsTable = styled.table`
+export const TransactionsTable = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.5rem;
+  gap: 1rem;
+  margin-top: 1rem;
 
-  .notTransactionsFound {
+  li {
+    background-color: #29292e;
     display: flex;
-    text-align: center;
-    margin-top: 0.5rem;
-  }
-
-  td {
-    padding: 1.25rem 2rem;
-    background-color: ${(props) => props.theme['gray-700']};
+    padding: 1rem;
     white-space: nowrap;
-    width: 100%;
+    overflow: hidden;
+    gap: 2rem;
 
-    &:first-child {
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
+    .description {
+      flex: 1;
+      min-width: 7rem;
     }
 
-    &:last-child {
-      border-top-right-radius: 6px;
-      border-bottom-right-radius: 6px;
+    .price {
+      flex: 1;
+      max-width: 5rem;
+      min-width: 5rem;
+      position: relative;
+
+      .minus {
+        position: absolute;
+        left: -0.5rem;
+      }
+    }
+
+    .categoryAndDate {
+      display: flex;
+      justify-content: space-around;
+      flex: 1;
+      opacity: 50%;
+
+      .category {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        gap: 0.5rem;
+        max-width: 5rem;
+        min-width: 5rem;
+      }
+
+      .date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      padding: 1.25rem;
+      gap: 1rem;
+
+      .price {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .categoryAndDate {
+        justify-content: space-between;
+      }
     }
   }
 `
+
 interface PriceHighLightProps {
   $variant: 'income' | 'outcome'
 }
