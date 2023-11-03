@@ -13,6 +13,12 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 600px) {
+    img {
+      width: 120px;
+    }
+  }
 `
 
 export const NewTransactionButton = styled.button`
