@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
 import { useContextSelector } from 'use-context-selector'
 import { CalendarIcon } from '../../shared/assets/CalendarIcon'
 import { CategoryIcon } from '../../shared/assets/CategoryIcon'
 import { Header } from '../../shared/components/Header'
 import { Summary } from '../../shared/components/Summary'
 import { TransactionsContext } from '../../shared/contexts/TransactionsContext'
+import { useWindowWidth } from '../../shared/hooks/useWindowWidth'
 import { dateFormatter, priceFormatter } from '../../shared/utils/fomatter'
 import {
   PriceHighLight,
@@ -15,17 +15,11 @@ import {
 import { SearchForm } from './utils/SearchForm'
 
 export function Transactions() {
-  const [width, setWidth] = useState(window.innerWidth)
+  const { width } = useWindowWidth()
 
   const transactions = useContextSelector(TransactionsContext, (context) => {
     return context.transactions
   })
-
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      setWidth(window.innerWidth)
-    })
-  }, [])
 
   return (
     <>
