@@ -42,7 +42,7 @@ export function SearchForm() {
         placeholder={width <= 600 ? 'Pesquisar' : 'Busque por transações'}
         {...register('query')}
       />
-      <button type="submit" disabled={isSubmitting}>
+      <button type="submit" name="pesquisar" disabled={isSubmitting}>
         <MagnifyingGlass size={20} />
         {width > 600 && <span>Buscar</span>}
       </button>

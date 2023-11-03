@@ -28,7 +28,7 @@ export function Summary() {
 
       <SummaryCard $variant="green">
         <header>
-          <span>Total</span>
+          <span className="total">Total</span>
           <CurrencyDollar size={32} color="#fff" />
         </header>
 

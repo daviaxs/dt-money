@@ -66,6 +66,10 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     font-size: 2rem;
   }
 
+  .total {
+    color: white;
+  }
+
   ${(props) =>
     props.$variant === 'green' &&
     css`

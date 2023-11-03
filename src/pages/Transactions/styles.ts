@@ -21,7 +21,7 @@ export const TransactionsTableContainer = styled.div`
     }
 
     span {
-      opacity: 0.5;
+      opacity: 0.75;
     }
   }
 `
@@ -62,7 +62,7 @@ export const TransactionsTable = styled.ul`
       display: flex;
       justify-content: space-around;
       flex: 1;
-      opacity: 50%;
+      opacity: 75%;
 
       .category {
         flex: 1;

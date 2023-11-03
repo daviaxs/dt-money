@@ -14,7 +14,7 @@ export function Header() {
         <img src={logoImg} alt="" />
         <Dialog.Root>
           <Dialog.Trigger asChild>
-            <NewTransactionButton>
+            <NewTransactionButton name="Nova transação">
               {width <= 600 ? '+' : 'Nova transação'}
             </NewTransactionButton>
           </Dialog.Trigger>
