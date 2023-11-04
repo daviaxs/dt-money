@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { MagnifyingGlass } from 'phosphor-react'
+import { Search } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import * as z from 'zod'
@@ -43,7 +43,7 @@ export function SearchForm() {
         {...register('query')}
       />
       <button type="submit" name="pesquisar" disabled={isSubmitting}>
-        <MagnifyingGlass size={20} />
+        <Search />
         {width > 600 && <span>Buscar</span>}
       </button>
     </SearchFormContainer>

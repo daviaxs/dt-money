@@ -1,4 +1,4 @@
-import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react'
+import { ArrowDownCircle, ArrowUpCircle, DollarSign } from 'lucide-react'
 import { useSummary } from '../../hooks/useSummary'
 import { priceFormatter } from '../../utils/fomatter'
 import { SummaryCard, SummaryContainer } from './styles'
@@ -11,7 +11,7 @@ export function Summary() {
       <SummaryCard>
         <header>
           <span>Entradas</span>
-          <ArrowCircleUp size={32} color="#00b37e" />
+          <ArrowUpCircle size={32} color="#00b37e" />
         </header>
 
         <strong>{priceFormatter.format(summary.income)}</strong>
@@ -20,7 +20,7 @@ export function Summary() {
       <SummaryCard>
         <header>
           <span>Saídas</span>
-          <ArrowCircleDown size={32} color="#f75a68" />
+          <ArrowDownCircle size={32} color="#f75a68" />
         </header>
 
         <strong>{priceFormatter.format(summary.outcome)}</strong>
@@ -29,7 +29,7 @@ export function Summary() {
       <SummaryCard $variant="green">
         <header>
           <span className="total">Total</span>
-          <CurrencyDollar size={32} color="#fff" />
+          <DollarSign size={32} color="#fff" />
         </header>
 
         <strong>{priceFormatter.format(summary.total)}</strong>

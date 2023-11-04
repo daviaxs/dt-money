@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Dialog from '@radix-ui/react-dialog'
-import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
+import { ArrowDownCircle, ArrowUpCircle, X } from 'lucide-react'
 import { Controller, useForm } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import * as z from 'zod'
@@ -97,11 +97,11 @@ export function NewTransactionModal() {
                   value={field.value}
                 >
                   <TransactionTypeButton $variant="income" value="income">
-                    <ArrowCircleUp size={24} />
+                    <ArrowUpCircle size={24} />
                     Entrada
                   </TransactionTypeButton>
                   <TransactionTypeButton $variant="outcome" value="outcome">
-                    <ArrowCircleDown size={24} />
+                    <ArrowDownCircle size={24} />
                     Saída
                   </TransactionTypeButton>
                 </TransactionType>
